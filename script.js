@@ -11,9 +11,7 @@ var specialSelect = window.confirm("Select 'OK' if you would like to include spe
 var passlength = Number(window.prompt("Select length of password (from 8 to 128 characters)."));
 var characterSelection = [];
 
-console.log(characterSelection);
-
-//
+// Lines 15 - 81 add different arrays of characters based on user selection.
 if (capsSelect && lowerSelect && numberSelect && specialSelect){
   var characterSelection = caps.concat(lower, numbers, special)
 } 
@@ -82,15 +80,12 @@ if (passlength < 8 || passlength > 128){
   window.alert("Must be between 8 and 128 characters in length!")
 }
 
-console.log(characterSelection);
-console.log(passlength);
 
+// Generates random character from array
 function getRandomItem(arr) {
 
-  // get random index value
   const randomIndex = Math.floor(Math.random() * arr.length);
 
-  // get random item
   const item = arr[randomIndex];
 
   return item;
@@ -111,7 +106,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-
+// Keeps generating password characters until the 
 function generatePassword() {
   
   var passSelection = "";
@@ -119,12 +114,6 @@ function generatePassword() {
 for (var i = 0; i < passlength; i++) {
   var randomCharacter = getRandomItem(characterSelection)
   passSelection = passSelection + randomCharacter
-}   
-
-console.log(passSelection)
-console.log(passSelection.length)
-console.log(typeof passlength);
-
-  
+}     
   return passSelection
 }
